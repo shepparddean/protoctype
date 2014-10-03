@@ -4,6 +4,8 @@ var prototypeApp = angular.module('prototypeApp', []);
 function mainController($scope, $http) {
 	$scope.formData = {};
 
+
+	console.log('This just runs when the page is rendered i guess?');
 	// when landing on the page, get all todos and show them
 	$http.get('/api/users')
 		.success(function(data) {
