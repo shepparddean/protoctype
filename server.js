@@ -52,7 +52,10 @@ router.route('/users')
 
 	// create a bear (accessed at POST http://localhost:8080/api/bears)
 	.post(function(req, res) {
-	
+		
+		console.log(req.body.name);
+		console.log(req.body.password);
+
 		User.create({
 			name : req.body.name,  // set the user name (comes from the request)
 			password : req.body.password
@@ -60,7 +63,13 @@ router.route('/users')
 			if (err)
 				res.send(err);
 
-			res.json({ message: 'User created!' });
+			console.log('returning all users');
+			User.find(function(err, users) {
+				if (err) 
+					res.send(err)
+
+				res.json(users);
+			});
 
 		});
 	})
@@ -103,7 +112,13 @@ router.route('/users/:user_id')
 				if (err)
 					res.send(err);
 
-				res.json({ message: 'User updated!' });
+				User.find(function(err, users) {
+					if (err) {
+						res.send(err)
+					}
+
+					res.json(users);
+				});
 			});
 
 		});
@@ -116,7 +131,13 @@ router.route('/users/:user_id')
 			if (err)
 				res.send(err);
 
-			res.json({ message: 'Successfully deleted' });
+			User.find(function(err, users) {
+				if (err) 
+					res.send(err)
+
+				res.json(users);
+				
+			});
 		});
 	});
 
