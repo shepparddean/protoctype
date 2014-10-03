@@ -12,7 +12,7 @@ var router = express.Router(); 				// get an instance of the express Router
 
 // middleware to use for all requests
 router.use(function(req, res, next) {
-	// do logging
+	console.log('Ok.. about to execute');
 	next(); // make sure we go to the next routes and don't stop here
 });
 
@@ -27,7 +27,7 @@ router.route('/users')
 	// create a bear (accessed at POST http://localhost:8080/api/bears)
 	.post(function(req, res) {
 		
-		console.log(req);
+		console.log(req.body);
 		console.log('The Name = [', req.body.name, ']');
 		console.log('The pass = [', req.body.password, ']');
 
