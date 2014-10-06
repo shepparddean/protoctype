@@ -20,8 +20,11 @@
 
 	<!-- SPELLS -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
-	<script src="core.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script><!-- load angular -->
+
+	<script src="js/controllers/main.js"></script>
+	<script src="js/services/users.js"></script>
+	<script src="js/core.js"></script>
 
 </head>
 <!-- SET THE CONTROLLER AND GET ALL TODOS -->
@@ -54,8 +57,8 @@
 					<div class="form-group">
 
 						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-						<input type="text" class="form-control input-lg text-center" placeholder="Johny" ng-model="formData.name">
-						<input type="text" class="form-control input-lg text-center" placeholder="Neutron" ng-model="formData.password">
+						<input type="text" class="form-control input-lg text-center" placeholder="Username" ng-model="formData.name">
+						<input type="text" class="form-control input-lg text-center" placeholder="Password" ng-model="formData.password">
 					</div>
 
 					<!-- createToDo() WILL CREATE NEW TODOS -->

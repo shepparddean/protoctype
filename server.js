@@ -15,10 +15,6 @@ var methodOverride = require('method-override'); // simulate DELETE and PUT (exp
 var database = require('./config/database');
 
 
-//load the routes
-require('./routes')(app, express);
-
-
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 mongoose.connect(database.url); // connect to our database
@@ -30,16 +26,14 @@ app.use(bodyParser.json()); 									// parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(methodOverride());
 
-
-
-var port = process.env.PORT || 8080; 		// set our port
-
-
-
+//load the routes
+require('./routes')(app);
 
 
 
 // START THE SERVER
 // =============================================================================
+var port = process.env.PORT || 8080; 		// set our port
+
 app.listen(port);
 console.log('Magic happens on port ' + port);
